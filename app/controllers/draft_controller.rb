@@ -9,7 +9,7 @@ class DraftController < ApplicationController
 
     yahoo_auth = YahooAuthentication.first
     if !params[:code].present? && !yahoo_auth&.access_token
-      redirect_to client.auth_code.authorize_url(redirect_uri: 'https://evening-reaches-28611.herokuapp.com/')
+      redirect_to client.auth_code.authorize_url(redirect_uri: Rails.application.credentials.dig(:redirect_url))
     else
       if yahoo_auth&.access_token
         # refresh if needed

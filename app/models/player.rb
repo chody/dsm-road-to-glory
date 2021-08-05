@@ -2,8 +2,7 @@ class Player < ApplicationRecord
 
   def self.get_list(page: nil)
 
-    league_key = '406.l.189624'
-    game = "https://fantasysports.yahooapis.com/fantasy/v2/league/#{league_key}/players;start=#{page}"
+    game = "https://fantasysports.yahooapis.com/fantasy/v2/league/#{Rails.application.credentials.dig(:league_key)}/players;start=#{page}"
 
     uri = URI.parse(game)
     request = Net::HTTP::Get.new(uri)

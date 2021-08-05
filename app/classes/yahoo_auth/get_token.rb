@@ -20,7 +20,7 @@ module YahooAuth
 
     def setup
       oauth_credentials = Base64.strict_encode64("#{Rails.application.credentials.dig(:yahoo_client_id)}:#{Rails.application.credentials.dig(:yahoo_client_secret)}")
-      token = client.auth_code.get_token(code, redirect_uri: 'https://evening-reaches-28611.herokuapp.com/', headers: { 'Authorization' => "Basic #{oauth_credentials}"}, grant_type: "authorization_code").to_hash
+      token = client.auth_code.get_token(code, redirect_uri: Rails.application.credentials.dig(:redirect_url), headers: { 'Authorization' => "Basic #{oauth_credentials}"}, grant_type: "authorization_code").to_hash
       refresh_time = Time.now + 1.hour
 
       if yahoo_auth
