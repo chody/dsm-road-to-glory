@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+  has_many :players
 
   def self.create_teams
     url = "https://fantasysports.yahooapis.com/fantasy/v2/league/#{Rails.application.credentials.dig(:league_key)}/teams"
