@@ -1,5 +1,6 @@
 class DraftController < ApplicationController
   def index
+    @teams = Team.all.order(draft_position: :asc)
     client = OAuth2::Client.new(Rails.application.credentials.dig(:yahoo_client_id),
                                 Rails.application.credentials.dig(:yahoo_client_secret),
                                 site: 'https://api.login.yahoo.com',

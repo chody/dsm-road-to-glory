@@ -1,1 +1,9 @@
-hither
+<div class="container mt-5">
+  <div class="row">
+    <% @teams.each do |team| %>
+      <div class='col' style='text-align: center; border-radius: 25px; border: 2px solid #73AD21; padding: 20px; width: 200px; margin-right: 5px;'>
+        <span style='font-size: 16px; white-space: no-wrap; font-weight: bold;'><%= team.owner %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

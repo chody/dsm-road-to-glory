@@ -47,7 +47,7 @@ class Team < ApplicationRecord
     when 'Harrison'
       return 'Harry'
     when 'Bryce Lobdell'
-      return '"Shrimp Fried" Bryce'
+      return 'Bryce'
     when 'Lucas'
       return 'Luke'
     when 'Dane M'
