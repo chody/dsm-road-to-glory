@@ -1,0 +1,2 @@
+class YahooAuthentication < ApplicationRecord
+end
