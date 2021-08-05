@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  owner: MyString
+  logo: MyString
+  draft_postion: 1
+  logo: MyString
+
+two:
+  name: MyString
+  owner: MyString
+  logo: MyString
+  draft_postion: 1
+  logo: MyString

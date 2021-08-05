@@ -2,9 +2,9 @@ class Player < ApplicationRecord
 
   def self.get_list(page: nil)
 
-    game = "https://fantasysports.yahooapis.com/fantasy/v2/league/#{Rails.application.credentials.dig(:league_key)}/players;start=#{page}"
+    url = "https://fantasysports.yahooapis.com/fantasy/v2/league/#{Rails.application.credentials.dig(:league_key)}/players;start=#{page}"
 
-    uri = URI.parse(game)
+    uri = URI.parse(url)
     request = Net::HTTP::Get.new(uri)
     yahoo_auth = YahooAuthentication.first
 
@@ -31,14 +31,7 @@ class Player < ApplicationRecord
 
     xml_hash = Hash.from_xml(xml.to_s)
 
-
-
-    # players = xml_hash['fantasy_content']['league']['players']['player']
     players = xml_hash.dig('fantasy_content', 'league', 'players', 'player')
-
-
-
-    # puts players.inspect
 
     players.each do |p|
       puts "CREATING #{p['name']['full']}"
