@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_061422) do
+ActiveRecord::Schema.define(version: 2021_08_05_034030) do
+
+  create_table "players", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "position"
+    t.string "headshot"
+    t.string "team"
+    t.string "bye_week"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "yahoo_authentications", charset: "utf8mb4", force: :cascade do |t|
     t.text "access_token"
