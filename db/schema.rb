@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_05_055555) do
+ActiveRecord::Schema.define(version: 2021_08_05_060332) do
 
   create_table "players", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_05_055555) do
     t.string "last_name"
     t.string "position"
     t.string "headshot"
-    t.string "team"
+    t.string "nfl_team"
     t.string "bye_week"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

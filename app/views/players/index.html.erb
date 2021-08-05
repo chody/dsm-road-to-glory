@@ -1,0 +1,28 @@
+<div class='container'>
+<table id='player-table' class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Player</th>
+      <th scope="col">Postion</th>
+      <th scope="col">Team</th>
+      <th scope="col">Bye Week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+        <tr>
+        <td><%= player.name %></td>
+        <td><%= player.position %></td>
+        <td><%= player.nfl_team %></td>
+        <td><%= player.bye_week %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<script type='text/javascript'>
+jQuery(document).ready(function() {
+    jQuery('#player-table').DataTable();
+} );
+</script>
