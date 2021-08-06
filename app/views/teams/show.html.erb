@@ -1,0 +1,22 @@
+<div class='container'>
+  <h2><%= @team.name %></h2>
+
+  <div class='row'>
+    <table class='table'>
+      <thead>
+        <th>Player</th>
+        <th>Position</th>
+        <th>NFL Team</th>
+      </thead>
+      <tbody>
+        <% @team.players.each do |player| %>
+          <tr>
+            <td><%= image_tag player.headshot %> <%= player.name %></td>
+            <td><%= player.position %></td>
+            <td><%= player.nfl_team %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

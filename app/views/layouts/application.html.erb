@@ -33,7 +33,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <% Team.all.order(draft_position: :asc).each do |team| %>
-                  <li><%= link_to team.name, '#', class: 'dropdown-item' %>
+                  <li><%= link_to team.name, team_path(team), class: 'dropdown-item' %>
                 <% end %>
               </ul>
             </li>
