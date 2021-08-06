@@ -1,5 +1,5 @@
 class Player < ApplicationRecord
-  belongs_to :team
+  belongs_to :team, optional: true
 
   def self.get_list(page: nil)
 
