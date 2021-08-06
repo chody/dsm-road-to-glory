@@ -1,52 +1,40 @@
-<div class="container mt-5">
+<div class="mt-5">
   <div class="row">
-    <% @teams.each do |team| %>
-      <div class='col' style='text-align: center; border-radius: 25px; border: 2px solid #73AD21; padding: 20px; width: 800px; margin-right: 5px;'>
-        <span style='font-size: 16px; white-space: no-wrap; font-weight: bold;'><%= team.owner %></span>
-      </div>
-    <% end %>
-  </div>
-
-  <% 14.times do |round_index| %>
-      <div class='row mt-3'>
-        <% 10.times do |dpi| %>
-          <% player = Team.find_by(draft_position: dpi + 1).players.all[round_index] %>
-          <% if player %>
-            <div class='col' style='text-align: center; border-radius: 25px; border: 2px solid #73AD21; padding: 20px; width: 800px; margin-right: 5px; line-height: 66%;'>
-              <%= image_tag player.headshot %>
-              <span style='font-size: 12px; white-space: no-wrap; font-weight: bold;'><%= player.name %></span>
-              <br/><br/>
-              <span style='font-size: 12px; white-space: no-wrap; font-weight: bold;'><%= player.position %></span>
-              <br/><br/>
-              <span style='font-size: 12px; white-space: no-wrap; font-weight: bold; margin-top: 5px;'><%= player.nfl_team %></span>
-            </div>
-          <% else %>
-
-            <div class='col' style='text-align: center; border-radius: 25px; border: 2px solid #73AD21; padding: 20px; width: 800px; margin-right: 5px; line-height: 66%;'>
-              <span style='font-size: 12px; white-space: no-wrap; font-weight: bold;'> Round <%= round_index + 1 %> Pick</span>
-            </div>
+    <div class='table-responsive' style='overflow-x: scroll;'>
+      <table class='table'>
+        <thead>
+          <th></th>
+          <% @teams.each do |team| %>
+            <th><%= team.owner %></th>
           <% end %>
+        </thead>
+        <tbody>
+          <% 14.times do |round_index| %>
+            <tr>
+              <td style='text-align: center;'>Round <%= round_index + 1 %></td>
+                <% 10.times do |dpi| %>
+                  <% player = Team.find_by(draft_position: dpi + 1).players.all[round_index] %>
+                  <% if player %>
+                    <td style='text-align: center;'>
+                      <table>
+                        <tr>
+                          <td><%= image_tag player.headshot, size: '' %></td>
+                        </tr>
+                        <tr>
+                          <td style='font-size: 10px; white-space: nowrap;'><%= player.name %> - <%= player.position %></td>
+                        </tr>
+                        <tr>
+                          <td style='font-size: 10px; white-space: nowrap;'><%= player.nfl_team %></td>
+                        </tr>
+                      </table>
+                    </td>
+                <% else %>
+                  <td></td>
+                <% end %>
+              <% end %>
+            </tr>
         <% end %>
-    </div>
-  <% end %>
-
-  <!-- Round 1 -->
-  <!-- <div class='row mt-3'>
-  <% 10.times do |p| %>
-      <% round = 0 %>
-      <% player = Team.find_by(draft_position: p+1).players.all[round] %>
-      <div class='col' style='text-align: center; border-radius: 25px; border: 2px solid #73AD21; padding: 20px; width: 200px; margin-right: 5px;'>
-        <% if player %>
-        <% end %>
-      </div>
-  <% end %>
-</div>  -->
-
-
-
-
-
-
-
-
+      </tbody>
+    </table>
+  </div>
 </div>
