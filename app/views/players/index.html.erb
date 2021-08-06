@@ -1,5 +1,5 @@
-<div class='container'>
-<table id='player-table' class="table mt-5">
+<div class='container mt-5'>
+<table id='players-table' class="table mt-5">
   <thead>
     <tr>
       <th scope="col">Player</th>
@@ -11,7 +11,7 @@
   <tbody>
     <% @players.each do |player| %>
         <tr>
-        <td><%= player.name %></td>
+        <td><%= image_tag player.headshot %> - <%= player.name %></td>
         <td><%= player.position %></td>
         <td><%= player.nfl_team %></td>
         <td><%= player.bye_week %></td>
@@ -22,7 +22,7 @@
 </div>
 
 <script type='text/javascript'>
-jQuery(document).ready(function() {
-    jQuery('#player-table').DataTable();
-} );
+  $(document).ready(function(){
+    $('#players-table').DataTable();
+  })
 </script>

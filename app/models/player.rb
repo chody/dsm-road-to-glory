@@ -41,7 +41,7 @@ class Player < ApplicationRecord
                     last_name: p['name']['last'],
                     position: p['display_position'],
                     headshot: p['image_url'],
-                    team: p['editorial_team_full_name'],
+                    nfl_team: p['editorial_team_full_name'],
                     bye_week: p['bye_weeks']['week'])
     end if players.present?
 
