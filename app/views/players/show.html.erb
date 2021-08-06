@@ -6,7 +6,7 @@
   <div class='mt-5'>
     <%= form_for @player do |f| %>
       <%= f.label :team_id, 'Assign Team' %>
-      <%= f.select :team_id, Team.all.collect {|t| [ t.name, t.id ] }, { include_blank: true } %>
+      <%= f.select :team_id, Team.all.collect {|t| [ t.owner, t.id ] }, { include_blank: true } %>
       <%= f.submit 'Draft', class: 'btn btn-success' %>
     <% end %>
   </div>
