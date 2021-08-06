@@ -1,0 +1,13 @@
+<div class='container mt-5'>
+  <%= image_tag @player.headshot, size: '50x50' %>
+  <h3><%= @player.position %> - <%= @player.name %>, <%= @player.nfl_team %></h3>
+
+
+  <div class='mt-5'>
+    <%= form_for @player do |f| %>
+      <%= f.label :team_id, 'Assign Team' %>
+      <%= f.select :team_id, Team.all.collect {|t| [ t.name, t.id ] }, { include_blank: true } %>
+      <%= f.submit 'Draft', class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

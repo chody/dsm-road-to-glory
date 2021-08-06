@@ -6,6 +6,7 @@
       <th scope="col">Postion</th>
       <th scope="col">Team</th>
       <th scope="col">Bye Week</th>
+      <th scope="col">Draft</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
         <td><%= player.position %></td>
         <td><%= player.nfl_team %></td>
         <td><%= player.bye_week %></td>
+        <td><%= link_to 'Draft', player_path(player), class: 'btn btn-success' %></td>
       </tr>
     <% end %>
   </tbody>
