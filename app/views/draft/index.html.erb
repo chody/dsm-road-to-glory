@@ -13,7 +13,7 @@
             <tr>
               <td style='text-align: center;'>Round <%= round_index + 1 %></td>
                 <% 10.times do |dpi| %>
-                  <% player = Team.find_by(draft_position: dpi + 1).players.all[round_index] %>
+                  <% player = Team.find_by(draft_position: dpi + 1).players.all.order(updated_at: :asc)[round_index] %>
                   <% if player %>
                     <td style='text-align: center;'>
                       <table>
